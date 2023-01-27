@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="jade.Boot"/>
+    <fullyQualifiedTypeName name="java.lang.Runtime"/>
+    <fullyQualifiedTypeName name="jade.core.Runtime"/>
+    <fullyQualifiedTypeName name="jade.core.Profile"/>
+    <fullyQualifiedTypeName name="jade.core.ProfileImpl"/>
+    <fullyQualifiedTypeName name="jade.wrapper.ContainerController"/>
+    <fullyQualifiedTypeName name="jade.wrapper.AgentController"/>
+    <fullyQualifiedTypeName name="jade.wrapper.StaleProxyException"/>
+    <fullyQualifiedTypeName name="jade.domain.introspection.AddedBehaviour"/>
+    <fullyQualifiedTypeName name="agents.Buyer.receiveSellersResopnses"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="javax.swing.JTextField"/>
+    <fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener"/>
+    <fullyQualifiedTypeName name="jade.core.Agent"/>
+    <fullyQualifiedTypeName name="jade.core.behaviours.ParallelBehaviour"/>
+    <fullyQualifiedTypeName name="jade.lang.acl.ACLMessage"/>
+    <fullyQualifiedTypeName name="jade.core.behaviours.DataStore"/>
+    <fullyQualifiedTypeName name="jade.domain.FIPAAgentManagement.DFAgentDescription"/>
+    <fullyQualifiedTypeName name="jade.domain.FIPAAgentManagement.ServiceDescription"/>
+    <fullyQualifiedTypeName name="jade.domain.DFService"/>
+    <fullyQualifiedTypeName name="jade.domain.FIPAException"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="jade.domain.JADEAgentManagement.CreateAgent"/>
+    <fullyQualifiedTypeName name="jade.core.AID"/>
+    <fullyQualifiedTypeName name="jade.util.leap.List"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="jade.lang.acl.MessageTemplate"/>
+    <fullyQualifiedTypeName name="jade.core.behaviours.Behaviour"/>
+    <fullyQualifiedTypeName name="jade.core.behaviours.CyclicBehaviour"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="agents.Seller.receiveBuyersAndSendResponse"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="agents.SellerGui"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="agents.BuyerGui"/>
+    <fullyQualifiedTypeName name="java.awt.TrayIcon.MessageType"/>
+</qualifiedTypeNameHistroy>

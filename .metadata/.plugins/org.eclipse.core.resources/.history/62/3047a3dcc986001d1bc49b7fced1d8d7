@@ -1,0 +1,64 @@
+package agents;
+
+import jade.core.AID;
+import jade.core.Agent;
+import jade.core.behaviours.Behaviour;
+import jade.core.behaviours.CyclicBehaviour;
+
+import jade.domain.introspection.AddedBehaviour;
+import jade.lang.acl.ACLMessage;
+
+public class Seller extends Agent{
+	
+
+	@Override
+	protected void setup(){
+		
+
+		String agentName = this.getAID().getName();
+		System.out.print("Hi i'm seller " + agentName +"\n" );
+		Object[] itemsToSell = new Object[] {
+				"potatos",
+				"tomato",
+				"red pen",
+				"aymen"
+		};
+		
+		Object[] prices = new Object[] {
+				"100",
+				"200",
+				"25",
+				"0"
+		};
+		//doDelete();
+		
+		addBehaviour(new CyclicBehaviour() {
+			@Override
+			public void action() {
+				ACLMessage message = receive();
+				String itemToBuy = (String) message.getContent();
+				if(itemToBuy == null) {
+					block();
+				}else {
+					for(int i=0; i<itemsToSell.length; i++) {
+						if( itemsToSell[i].toString() == itemToBuy) {
+							AID sender = message.getSender();
+							ACLMessage response = new ACLMessage(ACLMessage.INFORM);
+							response.addReceiver(sender);
+							String[] content = {itemToBuy, prices[i].toString()};
+							response.setContent(content.toString());
+							send(response);
+							break;
+						}
+					}
+				}
+			}
+		});
+	}
+
+	
+	@Override
+	protected void takeDown() {
+		System.out.print("I'm going\n");
+	}
+}

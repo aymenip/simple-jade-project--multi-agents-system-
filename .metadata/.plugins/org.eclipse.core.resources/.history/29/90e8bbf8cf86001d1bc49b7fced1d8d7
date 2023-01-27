@@ -1,0 +1,86 @@
+package agents;
+
+import jade.core.Profile;
+import jade.core.ProfileImpl;
+import jade.core.Runtime;
+import jade.wrapper.AgentController;
+import jade.wrapper.ContainerController;
+import jade.wrapper.StaleProxyException;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+
+public class Main extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		
+		
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Main frame = new Main();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		
+		
+		Runtime rt = Runtime.instance();
+		Profile pf = new ProfileImpl();
+		pf.setParameter(Profile.MAIN_HOST, "localhost");
+		pf.setParameter(Profile.GUI, "true");
+		ContainerController cc = rt.createMainContainer(pf);
+		AgentController ac;
+		try {
+			ac = cc.createNewAgent("Seller", "agents.Seller", args);
+			ac.start();
+		} catch (StaleProxyException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		// create new container for seller agent
+		Profile pfBuyer = new ProfileImpl(false);
+		pfBuyer.setParameter(Profile.MAIN_HOST, "localhost");
+		ContainerController cc2 = rt.createAgentContainer(pfBuyer);
+		AgentController ac2;
+		try {
+			ac2 = cc2.createNewAgent("Buyer", "agents.Buyer", new Object[] {"potatos"});
+			ac2.start();
+		} catch (StaleProxyException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Main() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 535, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		
+		JLabel lblNewLabel = new JLabel("Welcome in agents world");
+		lblNewLabel.setFont(new Font("Tempus Sans ITC", Font.BOLD, 45));
+		contentPane.add(lblNewLabel);
+	}
+
+}

@@ -1,0 +1,58 @@
+package agents;
+
+import jade.core.AID;
+import jade.core.Agent;
+import jade.core.behaviours.CyclicBehaviour;
+import jade.lang.acl.ACLMessage;
+
+public class Buyer extends Agent{
+	private String item; // buyer want to buy an item
+	
+	public Buyer () {
+		this.item = "";
+	}
+	
+	@Override
+	protected void setup() {
+		String agentName = this.getAID().getName();
+		System.out.print("\nHi i'm buyer " + agentName +"\n" );
+		
+		addBehaviour(new CyclicBehaviour() {
+			
+			@Override
+			public void action() {
+				ACLMessage response = receive();
+				if(response == null) {
+					block();
+				}else {
+					String[] content = response.getContent().split(",");
+					if(content[1].compareTo("-1") > -1) {
+						System.out.print("item " + content[0] + " found in " + response.getSender().getLocalName() + " - price: "+content[1]+"$");
+					}else {
+						System.out.print("item " + content[0] + " not found in " + response.getSender().getLocalName());
+					}
+				}
+				doDelete();
+			}
+		});
+		
+		Object[] args = getArguments(); // get all arguments passed while creation
+		if(args.length != 0) {
+			this.item = (String)args[0];
+			ACLMessage message = new ACLMessage(ACLMessage.INFORM);
+			message.setContent(this.item);
+			message.addReceiver(new AID("Seller", AID.ISLOCALNAME));
+			send(message);
+		}else {
+			System.out.print("\n item specfied");
+		}
+		
+		
+		
+		//doDelete();
+	}
+	@Override
+	protected void takeDown() {
+		System.out.print("I'm going\n");
+	}
+}

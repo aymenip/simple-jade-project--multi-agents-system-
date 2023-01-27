@@ -1,0 +1,34 @@
+package agents;
+
+import jade.core.Agent;
+import jade.core.behaviours.Behaviour;
+import jade.core.behaviours.CyclicBehaviour;
+import jade.domain.introspection.ACLMessage;
+import jade.domain.introspection.AddedBehaviour;
+
+public class Seller extends Agent{
+	
+
+	@Override
+	protected void setup(){
+		
+
+		String agentName = this.getAID().getName();
+		System.out.print("Hi i'm seller " + agentName +"\n" );
+		
+		//doDelete();
+		
+		addBehaviour(new CyclicBehaviour() {
+			@Override
+			public void action() {
+				ACLMessage
+			}
+		});
+	}
+
+	
+	@Override
+	protected void takeDown() {
+		System.out.print("I'm going\n");
+	}
+}

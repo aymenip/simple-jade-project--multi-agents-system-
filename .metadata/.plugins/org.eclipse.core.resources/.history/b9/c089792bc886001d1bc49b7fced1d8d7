@@ -1,0 +1,39 @@
+package agents;
+
+import jade.core.Agent;
+import jade.lang.acl.ACLMessage;
+
+public class Buyer extends Agent{
+	private String item; // buyer want to buy an item
+	
+	public Buyer () {
+		this.item = "";
+	}
+	
+	@Override
+	protected void setup() {
+		String agentName = this.getAID().getName();
+		System.out.print("\nHi i'm buyer " + agentName +"\n" );
+		
+		
+		Object[] args = getArguments(); // get all arguments passed while creation
+		if(args.length != 0) {
+			System.out.print("\nI want to buy the follwing item(s): ");
+			for(int i=0; i<args.length; i++) {
+				this.item = (String)args[i];
+				ACLMessage message = new ACLMessage(ACLMessage.INFORM);
+				
+			}
+		}else {
+			System.out.print("\n0 item specfied");
+		}
+		
+		
+		
+		//doDelete();
+	}
+	@Override
+	protected void takeDown() {
+		System.out.print("I'm going\n");
+	}
+}

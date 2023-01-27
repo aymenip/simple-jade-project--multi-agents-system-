@@ -1,0 +1,20 @@
+package agents;
+
+import jade.core.Agent;
+
+public class Seller extends Agent{
+	
+
+	@Override
+	protected void setup(){
+		
+
+		String agentName = this.getAID().getName();
+		System.out.print("Hi i'm seller " + agentName +"\n" );
+		//doDelete();
+	}
+	@Override
+	protected void takeDown() {
+		System.out.print("I'm going\n");
+	}
+}
